@@ -4,7 +4,8 @@ Heatwave prediction system for Brazil built as an end-to-end operational pipelin
 
 ERA5 ingestion → heatwave-condition derivation (WMO-style) → spatiotemporal deep learning inference (U-Net + temporal Transformer) → agent-based interpretation and structured report generation → Streamlit frontend for execution and visualization.
 
-Project Example link: https://drive.google.com/file/d/1Ur477gjBgrUuxl6FZcgwXHqMjR8sR9ja/view?usp=sharing
+Project Example link: 
+- https://drive.google.com/file/d/1Ur477gjBgrUuxl6FZcgwXHqMjR8sR9ja/view?usp=sharing
 ---
 
 ## 1. Project Objective
@@ -247,5 +248,6 @@ AgenticAI Heatwaves BR integrates:
 - Deterministic geospatial statistics
 - Agent-based structured scientific reporting
 - Fully Dockerized deployment with interactive frontend
+
 
 The system is modular, reproducible, and designed for operational climate forecasting workflows.
