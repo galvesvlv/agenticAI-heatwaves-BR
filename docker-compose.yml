@@ -1,0 +1,49 @@
+# proj-Agent-DL-hw
+# Heatwave prediction using era5 data, convLSTM and IA Agents with frontend.
+
+name: AgenticAI-Heatwaves-br
+
+services:
+  
+    etl-mongo:
+        container_name: etl-mongo
+        build: ./etl/mongodb
+        ports:
+            - "27017:27017"
+        volumes:
+            - mongo_data:/data/db
+  
+    etl-scraping:
+        container_name: etl-scraping
+        build: ./etl/era5scraping
+        stdin_open: true
+        tty: true
+        ports:
+            - "8000:8000"
+        volumes:
+            - ./etl:/app/etl
+            - C:/Users/Usuario/.cdsapirc:/root/.cdsapirc:ro
+    
+    api:
+        container_name: api-heatwaves
+        build:
+            context: .
+            dockerfile: inference_api/Dockerfile
+        ports:
+            - "8001:8001"
+        volumes:
+            - ./:/app
+        environment:
+            HF_TOKEN: # YOUR TOKEN FROM HUGGING FACE
+        restart: unless-stopped
+    frontend:
+        container_name: frontend-heatwaves
+        build: ./web_application
+        ports:
+            - "8501:8501"
+        depends_on:
+            - api
+        restart: unless-stopped
+
+volumes:
+  mongo_data:
