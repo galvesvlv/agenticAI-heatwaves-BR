@@ -1,0 +1,17 @@
+# Climate / model large files
+*.nc
+*.pt
+# Zarr directory stores
+*.zarr
+*.zarr/
+
+# Shapefile components
+*.shp
+*.shx
+*.dbf
+*.prj
+*.cpg
+
+# Python cache
+__pycache__/
+*.pyc
