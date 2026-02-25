@@ -1,0 +1,2 @@
+# Day 5 of each month at midnight
+0 0 5 * * /bin/bash /app/etl/run_etl.sh >> /var/log/cron.log 2>&1
